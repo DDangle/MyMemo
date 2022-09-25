@@ -32,7 +32,7 @@ class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextView
         let data = MemoData()
 
         //제목
-        data.title = self.subject
+//        data.title = self.subject
         //내용
         data.contents = self.detailTextView.text
 
@@ -43,8 +43,7 @@ class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextView
         //글작성 화면을 종료하고 memoList로 돌아간다
         //popViewController - 탐색 스택에서 상위뷰컨트롤러를 팝하고 디스플레이를 업데이트
         _ = self.navigationController?.popViewController(animated: true)
-        print("세이브 버튼 왜 안눌림?")
-        print("메모데이터 왜 못불러오냐 \([MemoData]())")
+       
     }
     
     //사용자가 텍스트뷰에 뭔가 입력하면 호출되는 메소드
