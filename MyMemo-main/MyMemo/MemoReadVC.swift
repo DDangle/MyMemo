@@ -9,6 +9,8 @@ import UIKit
 
 class MemoReadVC : UIViewController {
     
+    
+    
     @IBOutlet weak var titleLable : UILabel!
     @IBOutlet weak var contentsLable: UILabel!
     
@@ -17,16 +19,23 @@ class MemoReadVC : UIViewController {
     
     override func viewDidLoad() {
         //제목과 내용 이미지를 출력
+        
         self.titleLable.text = param?.title
         self.contentsLable.text = param?.contents
         
-//        //날짜 포맷 변환
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "dd일 HH:mm분에 작성됨"
-//        let dateString = formatter.string(from: (param?.regdata)!)
-//
-//        //네비게이션 타이틀에 날짜를 표시
-//        self.navigationItem.title = dateString
+       
+    }
+    
+    //메모 편집버튼
+    @IBAction func editButton(_ sender: Any) {
+        
+        // ToDo : 해당메모의 자료는 유지하면서 작성폼으로 이동할 것
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoWrite") as? MemoWriteVC {
+            vc.editTarget = param
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
     }
     
 }

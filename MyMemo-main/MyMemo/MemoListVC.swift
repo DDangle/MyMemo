@@ -12,6 +12,9 @@ class MemoListVC : UITableViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var listView : MemoData?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,16 +62,18 @@ class MemoListVC : UITableViewController {
         
         //memoList 배열에서 선택된 행에 맞는 데이터를 꺼냄
         let row = self.appDelegate.memolist[indexPath.row]
-        print("3333333333")
+       
         
         //MemoReadVC 화면의 인스턴스 생성
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoRead") as? MemoReadVC else { //instantiateViewController 지정된 식별자로 뷰컨트롤로를만들고 스토리보드 데이터로 초기화 한다.
             return
         }
         
-        print("11111111")
+       
         //값 전달후 MemoReadVC로 이동한다
         vc.param = row
         self.navigationController?.pushViewController(vc, animated: true)
+        
+        print("메모 데이터 확인 \(row)")
     }
 }

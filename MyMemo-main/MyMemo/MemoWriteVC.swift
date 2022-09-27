@@ -9,11 +9,26 @@ import UIKit
 
 class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextViewDelegate {
     @IBOutlet weak var detailTextView: UITextView!
+    @IBOutlet weak var writeTile: UITextField!
     
     var subject : String!
+    var editTarget : MemoData?
+    
+    
     
     override func viewDidLoad() {
         self.detailTextView.delegate = self
+        
+        if let memo = editTarget {
+            navigationItem.title = "메모 편집"
+            detailTextView.text = memo.contents
+            writeTile.text = memo.title
+        }
+        else {
+            navigationItem.title = "새 메모"
+            detailTextView.text = ""
+        }
+        
     }
     
     //save 버튼 클릭시 호출
@@ -27,22 +42,40 @@ class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextView
             self.present(alert, animated: true)
             return
         }
-
         //memoData 객체 생성후 데이터 담기
         let data = MemoData()
+        //앱델리게이트 객체를 읽어온다음, memoList배열에 memoData 객체를 추가한다.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        
+        
+        //에디트 누른후 세이브 눌럿을때 호출됨
+        if let memo = editTarget {
+            memo.contents = detailTextView.text
+            memo.title = writeTile.text
+            
+//            if let lvc = self.storyboard?.instantiateViewController(withIdentifier: "MemoList") as? MemoListVC {
+//                self.navigationController?.popViewController(animated: true)
+//            }
+            
+        }
+        else {
+            appDelegate.memolist.append(data)
+        }
 
         //제목
-//        data.title = self.subject
+        data.title = self.writeTile.text
         //내용
         data.contents = self.detailTextView.text
 
-        //앱델리게이트 객체를 읽어온다음, memoList배열에 memoData 객체를 추가한다.
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memolist.append(data)
+       
+        
 
         //글작성 화면을 종료하고 memoList로 돌아간다
         //popViewController - 탐색 스택에서 상위뷰컨트롤러를 팝하고 디스플레이를 업데이트
-        _ = self.navigationController?.popViewController(animated: true)
+        if let lvc = self.storyboard?.instantiateViewController(withIdentifier: "MemoList") as? MemoListVC {
+            self.navigationController?.pushViewController(lvc, animated: true)
+        }
        
     }
     
