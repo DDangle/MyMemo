@@ -16,12 +16,16 @@ class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextView
     @IBOutlet weak var writeTitle: UITextField!
     
     var subject : String!
+    var listVC = MemoListVC()
+    
     
     weak var delegate: MemoWriteVCDelegate?
     
     override func viewDidLoad() {
         self.detailTextView.delegate = self
     }
+    
+    
     
     //save 버튼 클릭시 호출
     @IBAction func saveButton(sender: UIButton) {
@@ -45,13 +49,16 @@ class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextView
 
         DBManager.shared.insertMemo(memo: data)
         //앱델리게이트 객체를 읽어온다음, memoList배열에 memoData 객체를 추가한다.
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memolist = DBManager.shared.readMemo()
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.memolist = DBManager.shared.readMemo()
+       
+        
         self.delegate?.updateMemo()
 
         //글작성 화면을 종료하고 memoList로 돌아간다
         //popViewController - 탐색 스택에서 상위뷰컨트롤러를 팝하고 디스플레이를 업데이트
         self.navigationController?.popViewController(animated: true)
+        print("왜 안나올까 \(listVC.memoList)")
     }
     
     //사용자가 텍스트뷰에 뭔가 입력하면 호출되는 메소드

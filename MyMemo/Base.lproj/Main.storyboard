@@ -66,20 +66,66 @@
             </objects>
             <point key="canvasLocation" x="1344.6153846153845" y="74.644549763033169"/>
         </scene>
-        <!--View Controller-->
+        <!--MeMo-->
         <scene sceneID="UJb-xp-oqu">
             <objects>
-                <viewController id="94W-TR-Z9m" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoList" id="94W-TR-Z9m" customClass="MemoListVC" customModule="MyMemo" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="33i-vs-Vv6">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="QEF-Sv-SmE">
+                                <rect key="frame" x="0.0" y="128" width="390" height="716"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MemoCell" rowHeight="118" id="DoU-hH-sa2" customClass="MemoCell" customModule="MyMemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="118"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DoU-hH-sa2" id="pNv-J7-ldZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="118"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MemoTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14G-8N-kdb">
+                                                    <rect key="frame" x="20" y="13" width="370" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MemoContents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ieG-Br-Sot">
+                                                    <rect key="frame" x="20" y="50" width="370" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Avn-Ra-vFf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="MeMo" id="ey9-hz-BWt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9j4-rG-vhu">
+                            <connections>
+                                <action selector="abbButton:" destination="94W-TR-Z9m" id="Sep-F9-1iT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="QEF-Sv-SmE" id="wwp-ye-3f2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TaT-GW-2hA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2148" y="350"/>
+            <point key="canvasLocation" x="516.92307692307691" y="74.644549763033169"/>
         </scene>
         <!--Memo-->
         <scene sceneID="W1O-tU-Th5">
@@ -137,7 +183,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5zq-h1-8TM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="518.46153846153845" y="75.355450236966817"/>
+            <point key="canvasLocation" x="778" y="-614"/>
         </scene>
         <!--Memo ReadVC-->
         <scene sceneID="9ZP-h0-btZ">
@@ -147,27 +193,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ns1-MZ-RK3">
-                                <rect key="frame" x="-2" y="47" width="390" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns1-MZ-RK3">
+                                <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                                 <items>
                                     <navigationItem title="Memo Read" id="EkE-oD-rJa">
                                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="chp-N0-iBb"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-AV-Cm5">
-                                <rect key="frame" x="16" y="107" width="358" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-AV-Cm5">
+                                <rect key="frame" x="16" y="107" width="358" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZqA-bc-Q4y"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnr-GF-vqT">
-                                <rect key="frame" x="16" y="154" width="358" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnr-GF-vqT">
+                                <rect key="frame" x="16" y="155" width="358" height="40"/>
                                 <color key="backgroundColor" red="0.90741278140000003" green="0.78150535939999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kHK-bb-Qw9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -175,6 +224,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sQ1-Ox-9dK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bKO-AV-Cm5" firstAttribute="top" secondItem="ns1-MZ-RK3" secondAttribute="bottom" constant="16" id="5OF-lL-c07"/>
+                            <constraint firstItem="ns1-MZ-RK3" firstAttribute="top" secondItem="sQ1-Ox-9dK" secondAttribute="top" id="6Ij-fz-Ew1"/>
+                            <constraint firstItem="sQ1-Ox-9dK" firstAttribute="trailing" secondItem="Lnr-GF-vqT" secondAttribute="trailing" constant="16" id="71P-OA-hnX"/>
+                            <constraint firstItem="ns1-MZ-RK3" firstAttribute="leading" secondItem="594-O1-4hc" secondAttribute="leading" id="9mK-Ce-vHf"/>
+                            <constraint firstItem="Lnr-GF-vqT" firstAttribute="top" secondItem="bKO-AV-Cm5" secondAttribute="bottom" constant="8" id="F5q-oS-Iuv"/>
+                            <constraint firstItem="bKO-AV-Cm5" firstAttribute="leading" secondItem="sQ1-Ox-9dK" secondAttribute="leading" constant="16" id="G0K-1M-AIr"/>
+                            <constraint firstItem="Lnr-GF-vqT" firstAttribute="leading" secondItem="sQ1-Ox-9dK" secondAttribute="leading" constant="16" id="bKp-mq-YbS"/>
+                            <constraint firstItem="sQ1-Ox-9dK" firstAttribute="trailing" secondItem="ns1-MZ-RK3" secondAttribute="trailing" id="eFS-Ii-I6r"/>
+                            <constraint firstItem="sQ1-Ox-9dK" firstAttribute="trailing" secondItem="bKO-AV-Cm5" secondAttribute="trailing" constant="16" id="koQ-qq-Zi5"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="contentsLable" destination="Lnr-GF-vqT" id="fcD-db-c0p"/>
@@ -194,12 +254,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="OHK-fS-P06" kind="relationship" relationship="rootViewController" id="5gK-BN-4DQ"/>
+                        <segue destination="94W-TR-Z9m" kind="relationship" relationship="rootViewController" id="Jl1-nU-3yi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vwp-h8-7KD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-388" y="76"/>
+            <point key="canvasLocation" x="-417" y="75"/>
         </scene>
     </scenes>
     <resources>

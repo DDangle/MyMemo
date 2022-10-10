@@ -7,19 +7,28 @@
 
 import UIKit
 
-
-class MemoListVC : UITableViewController {
+// 1. Write
+// 2. UITableViewController -> UIViewController + UITableView = 완
+// 3. 제약조건
+class MemoListVC : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
 //    @IBOutlet var listTableView: UITableView!
-    
 //    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     
     var memoList = [MemoData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.setData()
+        
     }
+
     
     func setData() {
         self.memoList = DBManager.shared.readMemo()
@@ -34,7 +43,7 @@ class MemoListVC : UITableViewController {
     
     // MARK : 테이블뷰 메소드들
     //number Of Rows Insection - 테이블 행의갯수
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //앱델리게이트의 memolist 의 데이터량 만큼 테이블 행의 길이를 정한다.
         let count = self.memoList.count
         return count
@@ -43,7 +52,7 @@ class MemoListVC : UITableViewController {
     }
     
     //테이블 행을 구성하는 메소드 - 셀
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //memolist 배열 데이터에서 주어진 행에 맞는 데이터를 꺼낸다.
         let row = self.memoList[indexPath.row]
         let celled = "MemoCell"
@@ -61,7 +70,7 @@ class MemoListVC : UITableViewController {
         return cell
     }
     //테이블에 특정행이 선택되었을때 실행되는 메소드, 선택된 행의 정보는 indexPath 에 담겨 전달
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //memoList 배열에서 선택된 행에 맞는 데이터를 꺼냄
         let row = self.memoList[indexPath.row]
        
