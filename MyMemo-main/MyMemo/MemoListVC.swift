@@ -76,4 +76,6 @@ class MemoListVC : UITableViewController {
         
         print("메모 데이터 확인 \(row)")
     }
+    
+
 }

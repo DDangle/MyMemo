@@ -53,16 +53,16 @@ class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextView
         if let memo = editTarget {
             memo.contents = detailTextView.text
             memo.title = writeTile.text
-            
+
 //            if let lvc = self.storyboard?.instantiateViewController(withIdentifier: "MemoList") as? MemoListVC {
 //                self.navigationController?.popViewController(animated: true)
 //            }
-            
         }
         else {
             appDelegate.memolist.append(data)
         }
-
+        
+        
         //제목
         data.title = self.writeTile.text
         //내용
@@ -76,6 +76,8 @@ class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextView
         if let lvc = self.storyboard?.instantiateViewController(withIdentifier: "MemoList") as? MemoListVC {
             self.navigationController?.pushViewController(lvc, animated: true)
         }
+        
+        
        
     }
     
