@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 class MemoListVC : UITableViewController {
     
 //    @IBOutlet var listTableView: UITableView!
@@ -14,9 +15,8 @@ class MemoListVC : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("메모 데이터 \([MemoData]())")
+        
     }
-    
     
     //memoWrite로 넘어가는 버튼
     @IBAction func abbButton(_ sender: UIBarButtonItem) {
@@ -57,9 +57,9 @@ class MemoListVC : UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //memoList 배열에서 선택된 행에 맞는 데이터를 꺼냄
         let row = self.appDelegate.memolist[indexPath.row]
-        
+       
         //MemoReadVC 화면의 인스턴스 생성
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoRead") as? MemoReadVC else { //instantiateViewController 지정된 식별자로 뷰컨트롤로를만들고 스토리보드 데이터로 초기화 한다.
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoRead") as? MemoReadVC else { //instantiateViewController 지정된 식별자로 뷰컨트롤러를 만들고 스토리보드 데이터로 초기화 한다.
             return
         }
         

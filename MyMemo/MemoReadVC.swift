@@ -10,7 +10,6 @@ import UIKit
 class MemoReadVC : UIViewController {
     
     @IBOutlet weak var titleLable : UILabel!
-    
     @IBOutlet weak var contentsLable: UILabel!
     
     //콘텐츠 데이터를 저장하는 변수
