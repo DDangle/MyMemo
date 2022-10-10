@@ -10,10 +10,13 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var memolist = [MemoData]() //메모데이터를 저장할 변수
+    var memolist = [MemoData]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        DBManager.shared.firstInit()
+        self.memolist = DBManager.shared.readMemo()
+        
         return true
     }
 

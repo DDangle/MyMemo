@@ -20,7 +20,8 @@ class MemoListVC : UITableViewController {
     
     //memoWrite로 넘어가는 버튼
     @IBAction func abbButton(_ sender: UIBarButtonItem) {
-        let writeVC = self.storyboard?.instantiateViewController(withIdentifier: "MemoWrite")
+        let writeVC = self.storyboard?.instantiateViewController(withIdentifier: "MemoWrite") as? MemoWriteVC
+        writeVC?.delegate = self
         self.navigationController?.pushViewController(writeVC!, animated: true)
     }
     
@@ -65,5 +66,10 @@ class MemoListVC : UITableViewController {
         //값 전달후 MemoReadVC로 이동한다
         vc.param = row
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+extension MemoListVC: MemoWriteVCDelegate {
+    func updateMemo() {
+        self.tableView.reloadData()
     }
 }

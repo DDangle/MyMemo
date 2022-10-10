@@ -6,12 +6,25 @@
 //
 
 import UIKit
+import FMDB
 
-class MemoData {
-    var memoIdx: Int?   //데이터 식별값
+class MemoData: NSObject {
+    var memoId: Int?   //데이터 식별값
     var title: String?      //메모 제목
     var contents: String?   //메모 내용
 //    var image : UIImage?    //이미지
-//    var regdata: Date?      //작성일
+    var regDate: Date?      //작성일
     
+    override init() {
+        super.init()
+    }
+    
+    init(rs: FMResultSet) {
+        super.init()
+        self.memoId = Int(rs.int(forColumn: "id"))
+        self.title = rs.string(forColumn: "title")
+        self.contents = rs.string(forColumn: "contents")
+        self.regDate = Date(timeIntervalSince1970: TimeInterval(rs.int(forColumn: "reg_date")))
+        
+    }
 }

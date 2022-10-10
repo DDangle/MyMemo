@@ -17,6 +17,8 @@
 		4E3C83BC28DC440A0007562B /* MemoWriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3C83BB28DC440A0007562B /* MemoWriteVC.swift */; };
 		4E3C83BE28DC44380007562B /* MemoReadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3C83BD28DC44380007562B /* MemoReadVC.swift */; };
 		4E3C83C028DC45060007562B /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3C83BF28DC45060007562B /* MemoCell.swift */; };
+		9B74DB4628F3EEFA003FFEE4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B74DB4528F3EEFA003FFEE4 /* DBManager.swift */; };
+		9B74DB4928F3EF20003FFEE4 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = 9B74DB4828F3EF20003FFEE4 /* FMDB */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,7 @@
 		4E3C83BB28DC440A0007562B /* MemoWriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoWriteVC.swift; sourceTree = "<group>"; };
 		4E3C83BD28DC44380007562B /* MemoReadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoReadVC.swift; sourceTree = "<group>"; };
 		4E3C83BF28DC45060007562B /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		9B74DB4528F3EEFA003FFEE4 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B74DB4928F3EF20003FFEE4 /* FMDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +79,7 @@
 				4E3C83AC28DC261A0007562B /* Assets.xcassets */,
 				4E3C83AE28DC261A0007562B /* LaunchScreen.storyboard */,
 				4E3C83B128DC261A0007562B /* Info.plist */,
+				9B74DB4528F3EEFA003FFEE4 /* DBManager.swift */,
 			);
 			path = MyMemo;
 			sourceTree = "<group>";
@@ -95,6 +100,9 @@
 			dependencies = (
 			);
 			name = MyMemo;
+			packageProductDependencies = (
+				9B74DB4828F3EF20003FFEE4 /* FMDB */,
+			);
 			productName = MyMemo;
 			productReference = 4E3C83A028DC26190007562B /* MyMemo.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 4E3C839728DC26190007562B;
+			packageReferences = (
+				9B74DB4728F3EF20003FFEE4 /* XCRemoteSwiftPackageReference "fmdb" */,
+			);
 			productRefGroup = 4E3C83A128DC26190007562B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -153,6 +164,7 @@
 				4E3C83BA28DC37060007562B /* MemoListVC.swift in Sources */,
 				4E3C83BE28DC44380007562B /* MemoReadVC.swift in Sources */,
 				4E3C83A428DC26190007562B /* AppDelegate.swift in Sources */,
+				9B74DB4628F3EEFA003FFEE4 /* DBManager.swift in Sources */,
 				4E2D14A128DC6C2800E842A3 /* MemoData.swift in Sources */,
 				4E3C83BC28DC440A0007562B /* MemoWriteVC.swift in Sources */,
 				4E3C83A628DC26190007562B /* SceneDelegate.swift in Sources */,
@@ -372,6 +384,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9B74DB4728F3EF20003FFEE4 /* XCRemoteSwiftPackageReference "fmdb" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ccgus/fmdb";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9B74DB4828F3EF20003FFEE4 /* FMDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B74DB4728F3EF20003FFEE4 /* XCRemoteSwiftPackageReference "fmdb" */;
+			productName = FMDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4E3C839828DC26190007562B /* Project object */;
 }
