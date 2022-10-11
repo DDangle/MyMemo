@@ -26,9 +26,13 @@ class MemoListVC : UIViewController, UITableViewDataSource, UITableViewDelegate 
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.setData()
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.updateMemo()
         
     }
-
     
     func setData() {
         self.memoList = DBManager.shared.readMemo()

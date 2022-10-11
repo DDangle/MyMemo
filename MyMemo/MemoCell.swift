@@ -8,11 +8,8 @@
 import UIKit
 
 class MemoCell : UITableViewCell {
-    
+
+   
     @IBOutlet weak var mymemoTitle: UILabel!
-    @IBOutlet weak var mymemoContents : UILabel!
-    
-    
-    
-    
+    @IBOutlet weak var mymemoContents: UILabel!
 }
