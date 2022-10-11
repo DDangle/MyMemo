@@ -9,7 +9,7 @@ import UIKit
 
 // 1. Write
 // 2. UITableViewController -> UIViewController + UITableView = 완
-// 3. 제약조건
+// 3. 제약조건 - 완
 class MemoListVC : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
 //    @IBOutlet var listTableView: UITableView!
@@ -21,6 +21,7 @@ class MemoListVC : UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     var memoList = [MemoData]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
@@ -30,11 +31,13 @@ class MemoListVC : UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.updateMemo()
         
+        self.updateMemo()
+        print("세이브 후 \(memoList)")
     }
-    
+    // db에 저장된 값을 뷰디드로드에 띄우기
     func setData() {
+        
         self.memoList = DBManager.shared.readMemo()
     }
     

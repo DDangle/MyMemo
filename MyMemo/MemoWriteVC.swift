@@ -40,13 +40,9 @@ class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextView
         }
 
         //memoData 객체 생성후 데이터 담기
-        var data = MemoData()
+        let data = MemoData()
         
-        //제목
-        data.title = self.writeTitle.text
-        //내용
-        data.contents = self.detailTextView.text
-
+        
         DBManager.shared.insertMemo(memo: data)
         print("2 View \(data)")
         //앱델리게이트 객체를 읽어온다음, memoList배열에 memoData 객체를 추가한다.
@@ -54,7 +50,15 @@ class MemoWriteVC : UIViewController, UINavigationControllerDelegate, UITextView
 //        appDelegate.memolist = DBManager.shared.readMemo()
         listVC.memoList = DBManager.shared.readMemo()
         listVC.memoList.append(data)
-
+        
+        
+        
+        //제목
+        data.title = self.writeTitle.text
+        //내용
+        data.contents = self.detailTextView.text
+        
+        
         //글작성 화면을 종료하고 memoList로 돌아간다
         //popViewController - 탐색 스택에서 상위뷰컨트롤러를 팝하고 디스플레이를 업데이트
         self.navigationController?.popViewController(animated: true)
