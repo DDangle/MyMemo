@@ -27,18 +27,22 @@ class MemoListVC : UIViewController, UITableViewDataSource, UITableViewDelegate 
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.setData()
+        
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.setData()
         self.updateMemo()
-        print("세이브 후 \(memoList)")
+        
+        print("View will appear \(memoList)")
     }
     // db에 저장된 값을 뷰디드로드에 띄우기
     func setData() {
-        
         self.memoList = DBManager.shared.readMemo()
+        self.updateMemo()
+        print("set Data \(memoList)")
+        
     }
     
     //memoWrite로 넘어가는 버튼

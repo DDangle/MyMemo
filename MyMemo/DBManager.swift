@@ -63,6 +63,7 @@ class DBManager: NSObject {
 
 // MARK: -
 extension DBManager {
+    
     func createMemeo() -> Bool {
         let sql: String = "CREATE TABLE if not exists memo (" +
         "id integer PRIMARY KEY," +
@@ -93,6 +94,8 @@ extension DBManager {
         } catch {
             print("e : \(error)")
         }
+        
+        
     }
     
     func readMemo() -> [MemoData] {

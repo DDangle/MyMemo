@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MRD-Mi-jkd">
-                                <rect key="frame" x="7" y="47" width="388" height="44"/>
+                                <rect key="frame" x="7" y="47" width="387" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Memo Write" id="SUk-CQ-bg4"/>
@@ -201,7 +201,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5zq-h1-8TM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="778" y="-614"/>
+            <point key="canvasLocation" x="2325" y="-898"/>
         </scene>
         <!--Memo ReadVC-->
         <scene sceneID="9ZP-h0-btZ">
