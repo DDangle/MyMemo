@@ -94,15 +94,13 @@ extension DBManager {
         } catch {
             print("e : \(error)")
         }
-        
-        
     }
     
     func readMemo() -> [MemoData] {
         guard let db = fmDB, db.open() else {
             return [MemoData]()
         }
-        let sql = "select * from memo " +
+        let sql = "SELECT * from memo " +
         ";"
         
         do {
@@ -119,6 +117,15 @@ extension DBManager {
         }
     }
     
+    func deleteMemo(memo: MemoData) -> Bool {
+        guard let db = fmDB, db.open() else {
+            return false
+        }
+        let sql = "DELETE from memo where id == \(memo.memoId);"
+        let success = db.executeStatements(sql)
+        db.close()
+        return success
+    }
     
 }
 

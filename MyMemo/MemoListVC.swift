@@ -65,13 +65,13 @@ class MemoListVC : UIViewController, UITableViewDataSource, UITableViewDelegate 
     //테이블 행을 구성하는 메소드 - 셀
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //memolist 배열 데이터에서 주어진 행에 맞는 데이터를 꺼낸다.
-        let row = self.memoList[indexPath.row]
+        let memo = self.memoList[indexPath.row]
         let celled = "MemoCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: celled) as! MemoCell
+        cell.delegate = self
         
         //memoCell 의 값
-        cell.mymemoTitle?.text = row.title
-        cell.mymemoContents?.text = row.contents
+        cell.setData(memo: memo)
         
 //        //Date 타입의 날짜를 yyyy-mm-dd HH:mm:ss  포맷에 맞게 변경한다.
 //        let formatter = DateFormatter()
@@ -98,5 +98,18 @@ class MemoListVC : UIViewController, UITableViewDataSource, UITableViewDelegate 
 extension MemoListVC: MemoWriteVCDelegate {
     func updateMemo() {
         self.tableView.reloadData()
+    }
+}
+extension MemoListVC: MemoCellDelegate {
+    func deleteBtnClicked(memo: MemoData?) {
+        if let memo = memo {
+            let success = DBManager.shared.deleteMemo(memo: memo)
+            if success {
+                self.memoList.removeAll(where: { $0.memoId == memo.memoId })
+                self.tableView.reloadData()
+            } else {
+                
+            }
+        }
     }
 }

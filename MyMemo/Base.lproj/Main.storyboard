@@ -105,12 +105,26 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zer-5t-C9R">
+                                                    <rect key="frame" x="326" y="11" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="MKE-4z-s53"/>
+                                                        <constraint firstAttribute="width" constant="44" id="ZTB-34-K0o"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="trash" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="deleteBtnClicked:" destination="DoU-hH-sa2" eventType="touchUpInside" id="Qoc-OQ-whX"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hoo-JL-eyt" firstAttribute="leading" secondItem="pNv-J7-ldZ" secondAttribute="leading" constant="20" symbolic="YES" id="2H4-Yd-HsM"/>
                                                 <constraint firstAttribute="trailing" secondItem="weA-UN-ZRw" secondAttribute="trailing" constant="277.33333333333331" id="78A-QE-jjx"/>
                                                 <constraint firstAttribute="bottom" secondItem="weA-UN-ZRw" secondAttribute="bottom" constant="51" id="7ZX-Pk-qa6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zer-5t-C9R" secondAttribute="trailing" id="9wc-k5-ph6"/>
                                                 <constraint firstItem="hoo-JL-eyt" firstAttribute="top" secondItem="pNv-J7-ldZ" secondAttribute="top" constant="11" id="L2i-Rf-9gk"/>
+                                                <constraint firstItem="zer-5t-C9R" firstAttribute="top" secondItem="pNv-J7-ldZ" secondAttribute="topMargin" id="Os8-3o-gHv"/>
                                                 <constraint firstItem="weA-UN-ZRw" firstAttribute="leading" secondItem="pNv-J7-ldZ" secondAttribute="leading" constant="20" symbolic="YES" id="WkB-ns-Rt0"/>
                                                 <constraint firstAttribute="trailing" secondItem="hoo-JL-eyt" secondAttribute="trailing" constant="287" id="iDw-ot-Kni"/>
                                                 <constraint firstItem="weA-UN-ZRw" firstAttribute="top" secondItem="hoo-JL-eyt" secondAttribute="bottom" constant="20" id="oCz-7h-hAB"/>
@@ -281,6 +295,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

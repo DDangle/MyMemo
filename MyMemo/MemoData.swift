@@ -9,7 +9,9 @@ import UIKit
 import FMDB
 
 class MemoData: NSObject {
-    var memoId: Int?   //데이터 식별값
+    // 이 놈아 id 값이 널 허용이면 어떻게 하니.
+    // 국가에서 주민번호가 없는 사람이 생기면 어떻게 되겠어.
+    var memoId: Int = 0   //데이터 식별값
     var title: String?      //메모 제목
     var contents: String?   //메모 내용
 //    var image : UIImage?    //이미지
