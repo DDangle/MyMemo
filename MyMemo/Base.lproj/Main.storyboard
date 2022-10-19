@@ -11,27 +11,11 @@
         <!--Memo WriteVC-->
         <scene sceneID="j7e-MT-WZc">
             <objects>
-                <viewController storyboardIdentifier="MemoWrite" id="DGz-Pf-TI7" customClass="MemoWriteVC" customModule="MyMemo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoWriteVC" id="DGz-Pf-TI7" customClass="MemoWriteVC" customModule="MyMemo" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YHn-M5-hy4">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MRD-Mi-jkd">
-                                <rect key="frame" x="7" y="47" width="387" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Memo Write" id="SUk-CQ-bg4"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2G-as-mJs">
-                                <rect key="frame" x="298" y="110" width="76" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="save"/>
-                                <connections>
-                                    <action selector="saveButtonWithSender:" destination="DGz-Pf-TI7" eventType="touchUpInside" id="xHS-2r-cfD"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ChI-Ul-xYa">
                                 <rect key="frame" x="16" y="152" width="358" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -44,6 +28,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9du-iX-LAb">
+                                <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2G-as-mJs">
+                                        <rect key="frame" x="320" y="0.0" width="70" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="8aK-sp-5K0"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="save"/>
+                                        <connections>
+                                            <action selector="saveButtonWithSender:" destination="DGz-Pf-TI7" eventType="touchUpInside" id="xHS-2r-cfD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ax1-qs-TCo"/>
+                                    <constraint firstItem="G2G-as-mJs" firstAttribute="top" secondItem="9du-iX-LAb" secondAttribute="top" id="tIp-mY-Z0J"/>
+                                    <constraint firstAttribute="bottom" secondItem="G2G-as-mJs" secondAttribute="bottom" id="tiW-Cj-6o2"/>
+                                    <constraint firstAttribute="trailing" secondItem="G2G-as-mJs" secondAttribute="trailing" id="ycI-5S-gUT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wow-PH-gtC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,7 +60,10 @@
                             <constraint firstItem="ChI-Ul-xYa" firstAttribute="leading" secondItem="Wow-PH-gtC" secondAttribute="leading" constant="16" id="Exi-Os-P1B"/>
                             <constraint firstItem="WFZ-kI-mit" firstAttribute="top" secondItem="ChI-Ul-xYa" secondAttribute="bottom" constant="17" id="VrF-Bv-Kr3"/>
                             <constraint firstItem="ChI-Ul-xYa" firstAttribute="top" secondItem="Wow-PH-gtC" secondAttribute="top" constant="105" id="Wt8-5O-oIQ"/>
+                            <constraint firstItem="9du-iX-LAb" firstAttribute="top" secondItem="Wow-PH-gtC" secondAttribute="top" id="Z6d-wT-9Li"/>
                             <constraint firstItem="Wow-PH-gtC" firstAttribute="bottom" secondItem="WFZ-kI-mit" secondAttribute="bottom" constant="80" id="a5h-vN-fY5"/>
+                            <constraint firstItem="9du-iX-LAb" firstAttribute="leading" secondItem="Wow-PH-gtC" secondAttribute="leading" id="hwJ-tk-XhC"/>
+                            <constraint firstItem="9du-iX-LAb" firstAttribute="trailing" secondItem="Wow-PH-gtC" secondAttribute="trailing" id="kL0-yL-Qit"/>
                             <constraint firstItem="WFZ-kI-mit" firstAttribute="leading" secondItem="Wow-PH-gtC" secondAttribute="leading" constant="16" id="mc5-jl-N4S"/>
                         </constraints>
                     </view>
@@ -61,6 +71,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detailTextView" destination="WFZ-kI-mit" id="O7l-Fb-5oo"/>
+                        <outlet property="saveBtn" destination="G2G-as-mJs" id="uzf-9K-VsH"/>
                         <outlet property="writeTitle" destination="ChI-Ul-xYa" id="9YQ-iU-Oc5"/>
                     </connections>
                 </viewController>
@@ -225,14 +236,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns1-MZ-RK3">
-                                <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                                <items>
-                                    <navigationItem title="Memo Read" id="EkE-oD-rJa">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="chp-N0-iBb"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-AV-Cm5">
                                 <rect key="frame" x="16" y="107" width="358" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -253,18 +256,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmf-18-bg8">
+                                <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH1-hm-gEa">
+                                        <rect key="frame" x="320" y="0.0" width="70" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="RyH-Jo-Tbn"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editBtnClicked:" destination="HGd-LS-hBP" eventType="touchUpInside" id="c8B-MU-og4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mH1-hm-gEa" secondAttribute="bottom" id="5kY-nB-zpx"/>
+                                    <constraint firstAttribute="height" constant="44" id="ahY-4T-3rf"/>
+                                    <constraint firstItem="mH1-hm-gEa" firstAttribute="top" secondItem="Dmf-18-bg8" secondAttribute="top" id="ia5-Di-el8"/>
+                                    <constraint firstAttribute="trailing" secondItem="mH1-hm-gEa" secondAttribute="trailing" id="rXY-Zz-SOX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sQ1-Ox-9dK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bKO-AV-Cm5" firstAttribute="top" secondItem="ns1-MZ-RK3" secondAttribute="bottom" constant="16" id="5OF-lL-c07"/>
-                            <constraint firstItem="ns1-MZ-RK3" firstAttribute="top" secondItem="sQ1-Ox-9dK" secondAttribute="top" id="6Ij-fz-Ew1"/>
                             <constraint firstItem="sQ1-Ox-9dK" firstAttribute="trailing" secondItem="Lnr-GF-vqT" secondAttribute="trailing" constant="16" id="71P-OA-hnX"/>
-                            <constraint firstItem="ns1-MZ-RK3" firstAttribute="leading" secondItem="594-O1-4hc" secondAttribute="leading" id="9mK-Ce-vHf"/>
                             <constraint firstItem="Lnr-GF-vqT" firstAttribute="top" secondItem="bKO-AV-Cm5" secondAttribute="bottom" constant="8" id="F5q-oS-Iuv"/>
                             <constraint firstItem="bKO-AV-Cm5" firstAttribute="leading" secondItem="sQ1-Ox-9dK" secondAttribute="leading" constant="16" id="G0K-1M-AIr"/>
+                            <constraint firstItem="bKO-AV-Cm5" firstAttribute="top" secondItem="Dmf-18-bg8" secondAttribute="bottom" constant="16" id="PFk-cZ-NQg"/>
+                            <constraint firstItem="sQ1-Ox-9dK" firstAttribute="trailing" secondItem="Dmf-18-bg8" secondAttribute="trailing" id="Y6X-ak-ZKR"/>
                             <constraint firstItem="Lnr-GF-vqT" firstAttribute="leading" secondItem="sQ1-Ox-9dK" secondAttribute="leading" constant="16" id="bKp-mq-YbS"/>
-                            <constraint firstItem="sQ1-Ox-9dK" firstAttribute="trailing" secondItem="ns1-MZ-RK3" secondAttribute="trailing" id="eFS-Ii-I6r"/>
+                            <constraint firstItem="Dmf-18-bg8" firstAttribute="top" secondItem="sQ1-Ox-9dK" secondAttribute="top" id="fsJ-Tw-jgZ"/>
+                            <constraint firstItem="Dmf-18-bg8" firstAttribute="leading" secondItem="sQ1-Ox-9dK" secondAttribute="leading" id="kRJ-pF-bbz"/>
                             <constraint firstItem="sQ1-Ox-9dK" firstAttribute="trailing" secondItem="bKO-AV-Cm5" secondAttribute="trailing" constant="16" id="koQ-qq-Zi5"/>
                         </constraints>
                     </view>

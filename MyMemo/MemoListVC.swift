@@ -83,15 +83,12 @@ class MemoListVC : UIViewController, UITableViewDataSource, UITableViewDelegate 
     //테이블에 특정행이 선택되었을때 실행되는 메소드, 선택된 행의 정보는 indexPath 에 담겨 전달
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //memoList 배열에서 선택된 행에 맞는 데이터를 꺼냄
-        let row = self.memoList[indexPath.row]
+        let memo = self.memoList[indexPath.row]
        
         //MemoReadVC 화면의 인스턴스 생성
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoRead") as? MemoReadVC else { //instantiateViewController 지정된 식별자로 뷰컨트롤러를 만들고 스토리보드 데이터로 초기화 한다.
-            return
-        }
-        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoRead") as! MemoReadVC //instantiateViewController 지정된 식별자로 뷰컨트롤러를 만들고 스토리보드 데이터로 초기화 한다.
         //값 전달후 MemoReadVC로 이동한다
-        vc.param = row
+        vc.memo = memo
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

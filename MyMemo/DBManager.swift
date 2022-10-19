@@ -86,7 +86,7 @@ extension DBManager {
 
         let title = memo.title ?? ""
         let contents = memo.contents ?? ""
-        let reg_date = memo.regDate?.timeIntervalSince1970 ?? 0
+        let reg_date = Int(Date().timeIntervalSince1970 * 1000)
 
         let values = [title, contents, reg_date] as [Any]
         do {
@@ -125,6 +125,24 @@ extension DBManager {
         let success = db.executeStatements(sql)
         db.close()
         return success
+    }
+    
+    func updateMemo(memo: MemoData) -> Bool{
+        guard let db = fmDB, db.open() else {
+            return false
+        }
+        guard let title = memo.title, let contents = memo.contents else {
+            return false
+        }
+        let regDate = Int(Date().timeIntervalSince1970 * 1000)
+        let sql = "UPDATE memo SET " +
+        "title='\(title)'," +
+        "contents='\(contents)'," +
+        "reg_date='\(regDate)' " +
+        "where id = \(memo.memoId)" +
+        ";"
+        db.executeStatements(sql)
+        return true
     }
     
 }
